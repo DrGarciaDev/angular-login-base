@@ -9,7 +9,12 @@
                         Crear nueva cuenta
                     </span>
     
-                    <!-- <span class="text-danger">El correo es obligatorio</span> -->
+                    <span 
+                        *ngIf="formLogin.submitted && formLogin.controls['email'].errors"
+                        class="text-danger animated fadeIn"
+                    >
+                        El correo es obligatorio
+                    </span>
                     <div class="wrap-input100 m-b-16">
                         <input class="input100" 
                                type="email" 
@@ -21,7 +26,12 @@
                         <span class="focus-input100"></span>
                     </div>
 
-                    <!-- <span class="text-danger">El nombre es obligatorio</span> -->
+                    <span 
+                        *ngIf="formLogin.submitted && formLogin.controls['nombre'].errors"
+                        class="text-danger animated fadeIn"
+                    >
+                        El nombre es obligatorio
+                    </span>
                     <div class="wrap-input100 m-b-16">
                         <input class="input100" 
                                type="text" 
@@ -34,7 +44,12 @@
                         <span class="focus-input100"></span>
                     </div>
                     
-                    <!-- <span class="text-danger">La contraseña debe de ser más de 6 letras</span> -->
+                    <span 
+                        *ngIf="formLogin.submitted && formLogin.controls['password'].errors"
+                        class="text-danger animated fadeIn"
+                    >
+                        El password es obligatorio
+                    </span>
                     <div class="wrap-input100 m-b-16" data-validate = "Password is required">
                         <input class="input100"
                                type="password" 
