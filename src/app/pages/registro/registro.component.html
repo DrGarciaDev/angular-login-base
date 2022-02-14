@@ -1,7 +1,9 @@
 <div class="limiter">
         <div class="container-login100">
             <div class="wrap-login100 p-t-50 p-b-90">
-                <form (ngSubmit)="onSubmit()" class="login100-form validate-form flex-sb flex-w">
+                <form (ngSubmit)="onSubmit(formLogin)" 
+                #formLogin="ngForm" 
+                class="login100-form validate-form flex-sb flex-w">
     
                     <span class="login100-form-title p-b-51">
                         Crear nueva cuenta
@@ -10,8 +12,9 @@
                     <!-- <span class="text-danger">El correo es obligatorio</span> -->
                     <div class="wrap-input100 m-b-16">
                         <input class="input100" 
-                               type="text" 
+                               type="email" 
                                name="email" 
+                               required
                                [(ngModel)]="usuario.email"
                                placeholder="Email">
     
@@ -23,6 +26,8 @@
                         <input class="input100" 
                                type="text" 
                                name="nombre" 
+                               required
+                               minlength="2"
                                [(ngModel)]="usuario.nombre"
                                placeholder="Nombre y apellidos">
     
@@ -33,7 +38,9 @@
                     <div class="wrap-input100 m-b-16" data-validate = "Password is required">
                         <input class="input100"
                                type="password" 
-                               name="pass" 
+                               name="password"
+                               required
+                               minlength="6"
                                [(ngModel)]="usuario.password"
                                placeholder="Password">
                         <span class="focus-input100"></span>
