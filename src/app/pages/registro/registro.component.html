@@ -1,8 +1,8 @@
-<div class="limiter">
+<div class="limiter animated fadeInRight">
         <div class="container-login100">
             <div class="wrap-login100 p-t-50 p-b-90">
-                <form (ngSubmit)="onSubmit(formLogin)" 
-                #formLogin="ngForm" 
+                <form (ngSubmit)="onSubmit(formRegistro)" 
+                #formRegistro="ngForm" 
                 class="login100-form validate-form flex-sb flex-w">
     
                     <span class="login100-form-title p-b-51">
@@ -10,7 +10,7 @@
                     </span>
     
                     <span 
-                        *ngIf="formLogin.submitted && formLogin.controls['email'].errors"
+                        *ngIf="formRegistro.submitted && formRegistro.controls['email'].errors"
                         class="text-danger animated fadeIn"
                     >
                         El correo es obligatorio
@@ -27,7 +27,7 @@
                     </div>
 
                     <span 
-                        *ngIf="formLogin.submitted && formLogin.controls['nombre'].errors"
+                        *ngIf="formRegistro.submitted && formRegistro.controls['nombre'].errors"
                         class="text-danger animated fadeIn"
                     >
                         El nombre es obligatorio
@@ -45,7 +45,7 @@
                     </div>
                     
                     <span 
-                        *ngIf="formLogin.submitted && formLogin.controls['password'].errors"
+                        *ngIf="formRegistro.submitted && formRegistro.controls['password'].errors"
                         class="text-danger animated fadeIn"
                     >
                         El password es obligatorio
@@ -70,7 +70,7 @@
                         </div>
     
                         <div>
-                            <a routerLink="/registro" class="txt1">
+                            <a routerLink="/login" class="txt1">
                                 ¿Ya tienes cuenta? / Ingresar
                             </a>
                         </div>
