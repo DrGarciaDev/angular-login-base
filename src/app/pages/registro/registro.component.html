@@ -27,7 +27,7 @@
                     </div>
 
                     <span 
-                        *ngIf="formRegistro.submitted && formRegistro.controls['nombre'].errors"
+                        *ngIf="formRegistro.submitted && formRegistro.controls['name'].errors"
                         class="text-danger animated fadeIn"
                     >
                         El nombre es obligatorio
@@ -35,10 +35,10 @@
                     <div class="wrap-input100 m-b-16">
                         <input class="input100" 
                                type="text" 
-                               name="nombre" 
+                               name="name" 
                                required
                                minlength="2"
-                               [(ngModel)]="usuario.nombre"
+                               [(ngModel)]="usuario.name"
                                placeholder="Nombre y apellidos">
     
                         <span class="focus-input100"></span>

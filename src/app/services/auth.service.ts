@@ -7,7 +7,7 @@ import { UsuarioModel } from '../models/usuario.model';
 })
 export class AuthService {
 
-  private url = '';
+  private url = 'http://localhost/api-laravel-jwt/public';
 
   constructor( private http: HttpClient) { }
 
@@ -20,6 +20,16 @@ export class AuthService {
   }
 
   nuevoUsuario ( usuario: UsuarioModel ) {
+    const authData = {
+      // ...usuario,
+      email: usuario.email,
+      name: usuario.name,
+      password: usuario.password
+    }
 
+    return this.http.post(
+      `${this.url}/api/auth/register`,
+      authData
+    );
   }
 }
