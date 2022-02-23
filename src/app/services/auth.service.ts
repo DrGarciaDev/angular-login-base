@@ -16,7 +16,16 @@ export class AuthService {
   }
 
   login ( usuario: UsuarioModel ) {
+    const authData = {
+      // ...usuario,
+      email: usuario.email,
+      password: usuario.password
+    }
 
+    return this.http.post(
+      `${this.url}/api/auth/login`,
+      authData
+    );
   }
 
   nuevoUsuario ( usuario: UsuarioModel ) {
