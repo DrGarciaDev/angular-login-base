@@ -14,6 +14,7 @@ import { AuthService } from '../../services/auth.service';
 export class RegistroComponent implements OnInit {
 
   usuario: UsuarioModel;
+  recordarme = false;
 
   constructor( private auth: AuthService, 
                 private router: Router) { }
@@ -22,6 +23,11 @@ export class RegistroComponent implements OnInit {
     this.usuario = new UsuarioModel();
 
     this.usuario.email = 'luis@gmail.com';
+    
+    if ( localStorage.getItem('email') ) {
+      this.usuario.email = localStorage.getItem('email');
+      this.recordarme = true;
+    }
   }
 
   onSubmit( form: NgForm ) {
@@ -44,6 +50,10 @@ export class RegistroComponent implements OnInit {
     .subscribe( respuesta => {
       console.log(respuesta);
       Swal.close();
+
+      if ( this.recordarme ) {
+        localStorage.setItem('email', this.usuario.email);
+      }
 
       this.router.navigateByUrl('/home');
 
