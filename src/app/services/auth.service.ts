@@ -31,10 +31,10 @@ export class AuthService {
       `${this.url}/api/auth/login`,
       authData
     ).pipe(
-      map( resp => {
+      map( respuestaLogin => {
         console.log('Entró en el mapa del RXJS');
-        this.guardarToken( resp['token'] );
-        return resp;
+        this.guardarToken( respuestaLogin['token'] );
+        return respuestaLogin;
       })
     );
   }
@@ -51,10 +51,10 @@ export class AuthService {
       `${this.url}/api/auth/register`,
       authData
     ).pipe(
-      map( resp => {
+      map( respuestaNuevoUsuario => {
         console.log('Entró en el mapa del RXJS');
-        this.guardarToken( resp['token'] );
-        return resp;
+        this.guardarToken( respuestaNuevoUsuario['token'] );
+        return respuestaNuevoUsuario;
       })
     );
   }
